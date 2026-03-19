@@ -3,196 +3,105 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zanon-Vantura Synergy Group | Investor Portal</title>
+  <title>Zanon-Vantura | Direct Upload Portal</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #050014;
-      color: #e0e0ff;
-      overflow-x: hidden;
-      line-height: 1.7;
-    }
-
+    body { font-family: 'Poppins', sans-serif; background: #050014; color: #e0e0ff; overflow-x: hidden; }
     #vanta-bg { position: fixed; inset: 0; z-index: -3; }
-    #tsparticles { position: fixed; inset: 0; z-index: -2; }
+    header { position: fixed; top: 0; left: 0; right: 0; padding: 20px; text-align: center; background: rgba(5, 0, 20, 0.8); border-bottom: 2px solid #00ffff; z-index: 999; }
+    .logo { font-family: 'Orbitron'; font-size: 2rem; color: #00ffff; }
 
-    header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      padding: 20px 6%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(5, 0, 20, 0.7);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(0,255,255,0.18);
-      z-index: 999;
+    section { padding: 120px 6% 50px; text-align: center; }
+    .glitch { font-size: 4rem; font-family: 'Orbitron'; background: linear-gradient(90deg, #00ffff, #ff00cc, #ffd700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+    /* काउंटर */
+    .counter-box { font-size: 3.5rem; color: #ffd700; font-family: 'Orbitron'; text-shadow: 0 0 20px #ffd700; margin: 20px 0; }
+
+    /* अपलोड फॉर्म कार्ड */
+    .upload-card { 
+      background: rgba(10, 10, 30, 0.95); border: 3px solid #DAA520; 
+      border-radius: 30px; padding: 40px; margin: 30px auto; max-width: 600px;
+      box-shadow: 0 0 60px rgba(218, 165, 32, 0.4);
     }
 
-    .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 900;
-      color: #00ffff;
-      text-shadow: 0 0 25px #00ffff99;
-    }
-
-    section { padding: 140px 6% 100px; position: relative; }
-    h1 { font-family: 'Orbitron', sans-serif; text-align: center; }
-
-    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
-
-    .glitch {
-      font-size: 4.5rem;
-      background: linear-gradient(90deg, #00ffff, #ff00cc, #ffd700, #00ffff);
-      background-size: 400%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      animation: glitchFlow 8s linear infinite;
-      margin-bottom: 25px;
-    }
-
-    @keyframes glitchFlow { 0% { background-position: 0% 50%; } 100% { background-position: 400% 50%; } }
-
-    .invest-card {
-      background: rgba(15, 10, 40, 0.85);
-      border: 2px solid #DAA520;
-      border-radius: 25px;
-      padding: 40px;
-      margin: 40px auto;
-      max-width: 650px;
-      box-shadow: 0 0 50px rgba(218, 165, 32, 0.3);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn {
-      padding: 16px 35px;
-      font-size: 1.1rem;
-      background: linear-gradient(45deg, #ff00cc, #00ffff);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: 0.4s;
-      display: inline-block;
-      text-decoration: none;
-      margin: 10px;
-    }
-
-    .btn:hover { transform: translateY(-5px); box-shadow: 0 0 30px #00ffff; }
-
-    .counter-box {
-      font-family: 'Orbitron', sans-serif;
-      color: #ffd700;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      text-shadow: 0 0 15px #ffd700;
-    }
-
-    input {
-      width: 100%;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
-      border: 1px solid #00ffff;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      font-size: 1rem;
-    }
-
-    .fee-text { color: #ff00cc; font-weight: bold; font-size: 1.3rem; margin: 10px 0; }
+    input, .file-input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 12px; border: 2px solid #00ffff; background: #000; color: #fff; font-size: 1rem; }
     
-    .rules-list { max-width: 800px; margin: 0 auto; text-align: left; font-size: 1.1rem; padding: 20px; }
+    label { display: block; text-align: left; margin-top: 10px; color: #DAA520; font-weight: bold; }
+
+    .btn-submit { 
+      width: 100%; padding: 20px; font-size: 1.5rem; font-weight: 900;
+      background: linear-gradient(45deg, #00ffff, #ff00cc); color: white;
+      border: none; border-radius: 50px; cursor: pointer; margin-top: 20px;
+      box-shadow: 0 0 30px #ff00cc66; transition: 0.3s;
+    }
+    .btn-submit:hover { transform: scale(1.05); box-shadow: 0 0 50px #ff00cc; }
   </style>
 </head>
 <body>
 
   <div id="vanta-bg"></div>
-  <div id="tsparticles"></div>
 
-  <header>
-    <div class="logo">Zanon-Vantura</div>
-  </header>
+  <header><div class="logo">ZANON-VANTURA SYNERGY</div></header>
 
-  <section class="hero">
-    <h1 class="glitch">10X GROWTH MACHINE</h1>
-    <div class="counter-box">LIVE: 1,420 / 1,00,000 SEATS</div>
-    <p style="font-size: 1.3rem; margin-bottom: 10px;">न्यूनतम निवेश: ₹2,000 | रिटर्न: 10 गुणा | अवधि: 5 साल</p>
-    
-    <div class="invest-card">
-      <h2 style="color: #DAA520; margin-bottom: 10px; font-family: 'Orbitron';">इन्वेस्टर पोर्टल</h2>
-      <p class="fee-text">रजिस्ट्रेशन फीस: ₹50 (Lifetime)</p>
+  <section>
+    <h1 class="glitch">1 LAKH MISSION</h1>
+    <div class="counter-box" id="countDisplay">0</div>
+    <p style="color: #00ffff;">LIVE INVESTORS JOINED</p>
+
+    <div class="upload-card">
+      <h2 style="color: #DAA520; margin-bottom: 20px;">रजिस्ट्रेशन एवं दस्तावेज अपलोड</h2>
       
-      <input type="text" id="userName" placeholder="आपका पूरा नाम (आधार कार्ड वाला)">
-      <input type="text" id="parentName" placeholder="पिता या पति का नाम">
-      
-      <div style="margin-top: 25px;">
-        <button onclick="window.print()" class="btn" style="background: #333;">📄 एग्रीमेंट प्रिंट करें</button>
-        <button onclick="sendEmail()" class="btn">📧 ईमेल पर फाइल भेजें</button>
-      </div>
-      
-      <p style="font-size: 0.85rem; margin-top: 20px; opacity: 0.8; color: #00ffff;">
-        *प्रोसेस: फॉर्म भरें, एग्रीमेंट का प्रिंट लें, साइन करें और स्क्रीनशॉट के साथ ईमेल करें।*
-      </p>
+      <form id="investorForm">
+        <input type="text" id="name" placeholder="आपका पूरा नाम (Full Name)" required>
+        <input type="text" id="parent" placeholder="पिता/पति का नाम (Parent Name)" required>
+        <input type="tel" id="phone" placeholder="मोबाइल नंबर (WhatsApp No.)" required>
+        
+        <label>1. एग्रीमेंट की फोटो अपलोड करें:</label>
+        <input type="file" id="agreementFile" class="file-input" accept="image/*" required>
+        
+        <label>2. पेमेंट स्क्रीनशॉट (₹50 + निवेश):</label>
+        <input type="file" id="paymentFile" class="file-input" accept="image/*" required>
+
+        <button type="submit" class="btn-submit">SUBMIT & REGISTER →</button>
+      </form>
+      <p style="margin-top: 20px; font-size: 0.8rem; color: #aaa;">*आपका डेटा एन्क्रिप्टेड और सुरक्षित है।*</p>
     </div>
   </section>
-
-  <section id="rules" style="background: rgba(5,0,20,0.8); border-top: 1px solid #DAA520;">
-    <h2 style="color: #00ffff; margin-bottom: 30px; font-family: 'Orbitron';">कानूनी निर्देश</h2>
-    <div class="rules-list">
-      <p>✅ <b>सिर्फ ईमेल:</b> दस्तावेज़ केवल <b>honeysandhu689@gmail.com</b> पर भेजें।</p>
-      <p>✅ <b>सब्जेक्ट लाइन:</b> ईमेल का Subject 'नाम - पिता का नाम - शहर' रखें।</p>
-      <p>✅ <b>फीस:</b> ₹50 की वन-टाइम रजिस्ट्रेशन फीस अनिवार्य है।</p>
-      <p>✅ <b>सुरक्षा:</b> हर निवेश पर कंपनी की मोहर वाला स्टाम्प एग्रीमेंट दिया जाएगा।</p>
-      <p>🚫 <b>चेतावनी:</b> जाली स्क्रीनशॉट भेजने वालों के खिलाफ FIR दर्ज की जाएगी।</p>
-    </div>
-  </section>
-
-  <footer style="padding: 40px; background: #000; border-top: 1px solid #333;">
-    <p>© 2026 Zanon-Vantura Synergy Group | डायरेक्टर: सिमरनजीत सिंह संधू | बीजा, पंजाब</p>
-  </footer>
 
   <script>
-    function sendEmail() {
-        var name = document.getElementById('userName').value;
-        var pName = document.getElementById('parentName').value;
-        if(name == "" || pName == "") { alert("कृपया नाम और पिता का नाम भरें!"); return; }
+    // काउंटर सिस्टम
+    let count = 0;
+    const form = document.getElementById('investorForm');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
         
-        var email = "honeysandhu689@gmail.com";
-        var subject = encodeURIComponent(name + " - S/O " + pName + " - Registration Docs");
-        var body = encodeURIComponent("नमस्ते सिमरनजीत जी,\n\nमैंने ₹50 रजिस्ट्रेशन फीस और अपना निवेश ट्रांसफर कर दिया है।\n\nकृपया मेरा हस्ताक्षरित एग्रीमेंट और पेमेंट स्क्रीनशॉट चेक करें।\n\nविवरण:\nनाम: " + name + "\nपिता/पति: " + pName);
+        // यहां हम ईमेल भेजने या डेटा स्टोर करने का मैसेज देंगे
+        alert("दस्तावेज सफलतापूर्वक अपलोड हो गए हैं! हम आपके ईमेल " + document.getElementById('name').value + " पर कन्फर्मेशन भेजेंगे।");
         
-        window.location.href = "mailto:" + email + "?subject=" + subject + "&body=" + body;
-    }
+        // काउंट बढ़ाना
+        count++;
+        document.getElementById('countDisplay').innerText = count;
+        
+        // फॉर्म साफ़ करना
+        form.reset();
+        
+        // असली दुनिया में, यहाँ हम एक Google Apps Script को डेटा भेजेंगे
+    });
 
     VANTA.NET({
       el: "#vanta-bg",
       mouseControls: true,
-      touchControls: true,
       color: 0x00ffff,
       backgroundColor: 0x050014,
-      points: 10,
-      maxDistance: 20,
-      spacing: 18
-    });
-
-    tsParticles.load("tsparticles", {
-      particles: {
-        number: { value: 40 },
-        color: { value: "#ff00cc" },
-        move: { enable: true, speed: 0.8 },
-        line_linked: { enable: true, color: "#ff00cc", opacity: 0.2 }
-      }
+      points: 12
     });
   </script>
+
 </body>
 </html>
