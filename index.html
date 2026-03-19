@@ -1,61 +1,418 @@
-<!DOCTYPE html><html lang="hi">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zanon-Vantura Synergy Group</title><!-- Google Font --><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"><style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zanon-Vantura Synergy Group – Future Synergy Unleashed</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-body{
-    background: linear-gradient(135deg,#000428,#004e92);
-    color:white;
-    overflow-x:hidden;
-}
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050014;
+      color: #e0e0ff;
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
 
-header{
-    padding:30px;
-    text-align:center;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid rgba(255,255,255,0.1);
-}
+    #vanta-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+    }
 
-header h1{
-    font-size:2.5rem;
-    color:#FFD700;
-    letter-spacing:2px;
-}
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
 
-header p{
-    color:#ccc;
-    margin-top:10px;
-}
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 0, 20, 0.7);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0,255,255,0.18);
+      z-index: 999;
+      transition: 0.4s;
+    }
 
-.hero{
-    height:90vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
-}
+    header.scrolled { padding: 15px 6%; background: rgba(5,0,20,0.9); }
 
-.hero h2{
-    font-size:2.2rem;
-    margin-bottom:20px;
-    background: linear-gradient(90deg,#FFD700,#ffffff);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-}
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #00ffff;
+      text-shadow: 0 0 25px #00ffff99;
+    }
 
-.hero p{
-    max-width:700px;
-    line-height:1.6;
-    color:#ddd;
-}
+    nav a {
+      color: #c0c0ff;
+      text-decoration: none;
+      margin-left: 40px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
 
-.glow-card{
-    margin-top:40px;
-    padding:25px 40px;
-    border-radius:15px;
-    background: rgba(255,
+    nav a:hover { color: #00ffff; text-shadow: 0 0 15px #00ffff; }
+
+    section {
+      padding: 140px 6% 100px;
+      position: relative;
+    }
+
+    h1, h2 {
+      font-family: 'Orbitron', sans-serif;
+      text-align: center;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 6%;
+    }
+
+    .glitch {
+      font-size: 5.5rem;
+      background: linear-gradient(90deg, #00ffff, #ff00cc, #ffd700, #00ffff);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitchFlow 8s linear infinite, textShadow 4s infinite alternate;
+      margin-bottom: 25px;
+    }
+
+    @keyframes glitchFlow {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 400% 50%; }
+    }
+
+    @keyframes textShadow {
+      0% { text-shadow: 0 0 20px #00ffff88, 0 0 40px #ff00cc66; }
+      50% { text-shadow: 0 0 40px #ffd700aa, 0 0 70px #00ffffaa; }
+      100% { text-shadow: 0 0 30px #ff00cc88, 0 0 50px #ffd70088; }
+    }
+
+    .hero p { font-size: 1.5rem; max-width: 900px; margin: 0 auto 50px; opacity: 0.9; }
+
+    .btn {
+      padding: 18px 60px;
+      font-size: 1.4rem;
+      background: linear-gradient(45deg, #ff00cc, #00ffff);
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 40px rgba(0,255,255,0.6);
+      transition: 0.5s;
+    }
+
+    .btn:hover {
+      transform: translateY(-12px) scale(1.06);
+      box-shadow: 0 0 90px rgba(0,255,255,0.9);
+    }
+
+    .grid { 
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 60px auto 0;
+    }
+
+    .card {
+      background: rgba(15, 10, 40, 0.5);
+      border: 1px solid rgba(0,255,255,0.25);
+      border-radius: 22px;
+      padding: 45px 35px;
+      text-align: center;
+      transition: all 0.7s;
+      backdrop-filter: blur(10px);
+      transform: translateY(30px);
+      opacity: 0;
+    }
+
+    .card.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-25px) scale(1.04);
+      border-color: #00ffff;
+      box-shadow: 0 0 70px rgba(0,255,255,0.5), inset 0 0 25px rgba(0,255,255,0.15);
+    }
+
+    .card h3 { font-size: 1.9rem; color: #00ffff; margin-bottom: 20px; }
+
+    .timeline {
+      position: relative;
+      max-width: 1100px;
+      margin: 80px auto;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background: linear-gradient(#00ffff, #ff00cc);
+      top: 0; bottom: 0; left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .tl-item {
+      padding: 20px 40px;
+      position: relative;
+      background: rgba(20,15,50,0.6);
+      border-radius: 15px;
+      margin: 30px 0;
+      width: 45%;
+    }
+
+    .tl-item:nth-child(odd) { left: 0; text-align: right; }
+    .tl-item:nth-child(even) { left: 55%; }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      width: 25px; height: 25px;
+      background: #ffd700;
+      border-radius: 50%;
+      top: 30px;
+      box-shadow: 0 0 20px #ffd700aa;
+    }
+
+    .tl-item:nth-child(odd)::before { right: -37px; }
+    .tl-item:nth-child(even)::before { left: -37px; }
+
+    #testimonials .grid { grid-template-columns: 1fr; max-width: 800px; }
+
+    .testimonial {
+      font-style: italic;
+      font-size: 1.3rem;
+      padding: 30px;
+      border-left: 5px solid #00ffff;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 60px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    input, textarea {
+      padding: 18px;
+      border: 1px solid rgba(0,255,255,0.4);
+      border-radius: 12px;
+      background: rgba(20,15,50,0.6);
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 80px 20px 40px;
+      background: rgba(0,0,0,0.7);
+      border-top: 1px solid rgba(0,255,255,0.3);
+    }
+
+    @media (max-width: 900px) {
+      .glitch { font-size: 3.8rem; }
+      .tl-item { width: 90%; left: 5% !important; text-align: left !important; }
+      .tl-item::before { left: -37px !important; }
+      .timeline::before { left: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="vanta-bg"></div>
+  <div id="tsparticles"></div>
+
+  <header id="header">
+    <div class="logo">Zanon-Vantura</div>
+    <nav>
+      <a href="#home">होम</a>
+      <a href="#about">बारे में</a>
+      <a href="#journey">जर्नी</a>
+      <a href="#services">सेवाएँ</a>
+      <a href="#team">टीम</a>
+      <a href="#testimonials">टेस्टिमोनियल्स</a>
+      <a href="#contact">संपर्क</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1 class="glitch">Zanon-Vantura Synergy Group</h1>
+    <p>नवाचार की नई लहर • सिनर्जी से अनंत संभावनाएँ • Ludhiana से World को Connect</p>
+    <p style="font-size:1.7rem; margin:40px 0;">हम AI, Digital Transformation, Branding और Growth Strategy से आपके बिजनेस को 10X करते हैं।</p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">शुरू करें →</button>
+  </section>
+
+  <section id="about">
+    <h2 style="font-size:3.8rem; margin-bottom:50px;">हम कौन हैं?</h2>
+    <p style="font-size:1.4rem; max-width:1000px; margin:0 auto 50px; text-align:center;">
+      Zanon-Vantura Synergy Group Punjab के Ludhiana से शुरू हुआ एक futuristic collective है। 
+      हम tech, creativity और business intelligence को मिलाकर companies को next-gen level पर ले जाते हैं।
+      हमारा मंत्र है: "Synergy नहीं, तो supremacy नहीं।"
+    </p>
+  </section>
+
+  <section id="journey">
+    <h2>हमारी Journey</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <h3>2022</h3>
+        <p>कॉन्सेप्ट जन्मा – Ludhiana में छोटी सी टीम से शुरुआत</p>
+      </div>
+      <div class="tl-item">
+        <h3>2023</h3>
+        <p>पहले 50+ क्लाइंट्स – Digital Transformation projects</p>
+      </div>
+      <div class="tl-item">
+        <h3>2024</h3>
+        <p>AI & Automation division लॉन्च – National recognition</p>
+      </div>
+      <div class="tl-item">
+        <h3>2025-26</h3>
+        <p>Global expansion – Your future partner in innovation</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2>हमारी Power Services</h2>
+    <div class="grid">
+      <div class="card"><h3>AI & Automation</h3><p>Custom AI solutions, chatbots, predictive analytics</p></div>
+      <div class="card"><h3>Digital Branding</h3><p>Neon-age identity, social dominance, viral campaigns</p></div>
+      <div class="card"><h3>Web3 & Metaverse</h3><p>NFTs, VR experiences, blockchain integration</p></div>
+      <div class="card"><h3>Growth Hacking</h3><p>Data-driven strategies, 10X scaling blueprints</p></div>
+      <div class="card"><h3>Cyber Security</h3><p>Zero-trust architecture for modern threats</p></div>
+      <div class="card"><h3>Consulting 360°</h3><p>End-to-end business metamorphosis</p></div>
+    </div>
+  </section>
+
+  <section id="team">
+    <h2>हमारी Elite Team</h2>
+    <div class="grid">
+      <div class="card"><h3>Honey Sandhu</h3><p>Founder & Visionary</p><p>Tech + Business Synergist</p></div>
+      <div class="card"><h3>Aarav Tech Lead</h3><p>AI & Full-Stack Guru</p></div>
+      <div class="card"><h3>Neon Designer</h3><p>Creative Director</p></div>
+      <div class="card"><h3>Kira Strategist</h3><p>Growth & Marketing Head</p></div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <h2>क्या कहते हैं हमारे Partners</h2>
+    <div class="grid">
+      <div class="card testimonial">
+        <p>"Zanon-Vantura ने हमारे startup को 6 महीने में 4X growth दिया। Mind-blowing AI tools!"</p>
+        <p><strong>– Tech Startup Founder, Chandigarh</strong></p>
+      </div>
+      <div class="card testimonial">
+        <p>"Branding से लेकर automation तक – सब कुछ next level। Highly recommended!"</p>
+        <p><strong>– E-commerce Brand Owner, Ludhiana</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Connect With Future</h2>
+    <p style="text-align:center; font-size:2.2rem; margin:30px 0; color:#ffd700;">
+      +91 84273 38897
+    </p>
+    <a href="tel:+918427338897" style="text-decoration:none; display:block; text-align:center; margin:30px 0;">
+      <button class="btn">Call Now →</button>
+    </a>
+
+    <form id="contactForm">
+      <input type="text" placeholder="तुम्हारा नाम" required>
+      <input type="email" placeholder="ईमेल / व्हाट्सएप नंबर" required>
+      <textarea rows="6" placeholder="तुम्हारा मैसेज या प्रोजेक्ट आइडिया..." required></textarea>
+      <button type="submit" class="btn">Send to Zanon-Vantura →</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2026 Zanon-Vantura Synergy Group | Ludhiana, Punjab, India | Built with Neon & Synergy 🔥</p>
+  </footer>
+
+  <script>
+    // Vanta Background
+    VANTA.NET({
+      el: "#vanta-bg",
+      mouseControls: true,
+      touchControls: true,
+      gyroControls: false,
+      minHeight: 200.00,
+      minWidth: 200.00,
+      scale: 1.00,
+      scaleMobile: 1.00,
+      color: 0x00ffff,
+      backgroundColor: 0x050014,
+      points: 12,
+      maxDistance: 25,
+      spacing: 16
+    });
+
+    // tsParticles
+    tsParticles.load("tsparticles", {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: ["#00ffff", "#ff00cc", "#ffd700"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 3, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+      },
+      interactivity: {
+        detect_on: "canvas",
+        events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+        modes: { grab: { distance: 200, line_linked: { opacity: 0.7 } }, push: { particles_nb: 4 } }
+      },
+      retina_detect: true
+    });
+
+    // Scroll Effects
+    const header = document.getElementById('header');
+    const cards = document.querySelectorAll('.card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    cards.forEach(card => observer.observe(card));
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', scrollY > 150);
+    });
+
+    // Form dummy submit
+    document.getElementById('contactForm').addEventListener('submit', e => {
+      e.preventDefault();
+      alert('Message sent to Zanon-Vantura team! हम जल्दी connect करेंगे। 🚀');
+    });
+  </script>
+
+</body>
+          </html>
