@@ -33,6 +33,60 @@
       z-index: -2;
     }
 
+    /* Language Selector - बड़ा और prominent */
+    .lang-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: rgba(5, 0, 20, 0.95);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(0,255,255,0.4);
+      border-radius: 25px;
+      padding: 20px 25px;
+      box-shadow: 0 20px 60px rgba(0,255,255,0.2);
+      min-width: 280px;
+    }
+
+    .lang-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: #00ffff;
+      margin-bottom: 15px;
+      text-align: center;
+      text-shadow: 0 0 15px #00ffff80;
+    }
+
+    .lang-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .lang-btn {
+      padding: 12px 20px;
+      background: rgba(20,15,50,0.6);
+      color: #c0c0ff;
+      border: 1px solid rgba(0,255,255,0.3);
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.4s;
+      flex: 1;
+      min-width: 70px;
+      text-align: center;
+    }
+
+    .lang-btn:hover, .lang-btn.active {
+      background: linear-gradient(45deg, #00ffff, #ff00cc);
+      color: white;
+      border-color: #00ffff;
+      box-shadow: 0 0 30px rgba(0,255,255,0.6);
+      transform: translateY(-3px) scale(1.05);
+    }
+
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -45,6 +99,7 @@
       border-bottom: 1px solid rgba(0,255,255,0.18);
       z-index: 999;
       transition: 0.4s;
+      margin-right: 300px; /* lang-selector के लिए space */
     }
 
     header.scrolled { padding: 15px 6%; background: rgba(5,0,20,0.9); }
@@ -88,13 +143,18 @@
     }
 
     .glitch {
-      font-size: 5.5rem;
+      font-size: 6.2rem; /* थोड़ा बड़ा */
       background: linear-gradient(90deg, #00ffff, #ff00cc, #ffd700, #00ffff);
       background-size: 400%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: glitchFlow 8s linear infinite, textShadow 4s infinite alternate;
       margin-bottom: 25px;
+      line-height: 1.1;
+    }
+
+    @media (max-width: 768px) {
+      .glitch { font-size: 4.2rem; }
     }
 
     @keyframes glitchFlow {
@@ -108,11 +168,17 @@
       100% { text-shadow: 0 0 30px #ff00cc88, 0 0 50px #ffd70088; }
     }
 
-    .hero p { font-size: 1.5rem; max-width: 900px; margin: 0 auto 50px; opacity: 0.9; }
+    .hero p { 
+      font-size: 1.7rem; 
+      max-width: 900px; 
+      margin: 0 auto 50px; 
+      opacity: 0.9;
+      line-height: 1.5;
+    }
 
     .btn {
-      padding: 18px 60px;
-      font-size: 1.4rem;
+      padding: 20px 70px; /* बड़ा button */
+      font-size: 1.5rem;
       background: linear-gradient(45deg, #ff00cc, #00ffff);
       color: white;
       border: none;
@@ -120,6 +186,7 @@
       cursor: pointer;
       box-shadow: 0 0 40px rgba(0,255,255,0.6);
       transition: 0.5s;
+      font-weight: 600;
     }
 
     .btn:hover {
@@ -129,8 +196,8 @@
 
     .grid { 
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); /* थोड़ा बड़ा cards */
+      gap: 50px;
       max-width: 1400px;
       margin: 60px auto 0;
     }
@@ -138,13 +205,14 @@
     .card {
       background: rgba(15, 10, 40, 0.5);
       border: 1px solid rgba(0,255,255,0.25);
-      border-radius: 22px;
-      padding: 45px 35px;
+      border-radius: 25px;
+      padding: 55px 40px; /* बड़ा padding */
       text-align: center;
       transition: all 0.7s;
       backdrop-filter: blur(10px);
       transform: translateY(30px);
       opacity: 0;
+      font-size: 1.1rem;
     }
 
     .card.visible {
@@ -158,30 +226,37 @@
       box-shadow: 0 0 70px rgba(0,255,255,0.5), inset 0 0 25px rgba(0,255,255,0.15);
     }
 
-    .card h3 { font-size: 1.9rem; color: #00ffff; margin-bottom: 20px; }
+    .card h3 { 
+      font-size: 2.1rem; 
+      color: #00ffff; 
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px #00ffff80;
+    }
 
     .timeline {
       position: relative;
-      max-width: 1100px;
+      max-width: 1200px; /* बड़ा timeline */
       margin: 80px auto;
     }
 
     .timeline::before {
       content: '';
       position: absolute;
-      width: 6px;
+      width: 8px; /* मोटी line */
       background: linear-gradient(#00ffff, #ff00cc);
       top: 0; bottom: 0; left: 50%;
       transform: translateX(-50%);
+      box-shadow: 0 0 20px rgba(0,255,255,0.4);
     }
 
     .tl-item {
-      padding: 20px 40px;
+      padding: 30px 50px; /* बड़ा padding */
       position: relative;
       background: rgba(20,15,50,0.6);
-      border-radius: 15px;
-      margin: 30px 0;
+      border-radius: 20px;
+      margin: 40px 0;
       width: 45%;
+      font-size: 1.2rem;
     }
 
     .tl-item:nth-child(odd) { left: 0; text-align: right; }
@@ -190,54 +265,82 @@
     .tl-item::before {
       content: '';
       position: absolute;
-      width: 25px; height: 25px;
+      width: 30px; height: 30px; /* बड़ा dots */
       background: #ffd700;
       border-radius: 50%;
-      top: 30px;
-      box-shadow: 0 0 20px #ffd700aa;
+      top: 35px;
+      box-shadow: 0 0 25px #ffd700aa;
     }
 
-    .tl-item:nth-child(odd)::before { right: -37px; }
-    .tl-item:nth-child(even)::before { left: -37px; }
+    .tl-item:nth-child(odd)::before { right: -44px; }
+    .tl-item:nth-child(even)::before { left: -44px; }
 
-    #testimonials .grid { grid-template-columns: 1fr; max-width: 800px; }
+    #testimonials .grid { grid-template-columns: 1fr; max-width: 900px; }
 
     .testimonial {
       font-style: italic;
-      font-size: 1.3rem;
-      padding: 30px;
-      border-left: 5px solid #00ffff;
+      font-size: 1.4rem; /* बड़ा text */
+      padding: 40px;
+      border-left: 6px solid #00ffff;
+      line-height: 1.6;
     }
 
     form {
-      max-width: 600px;
+      max-width: 700px; /* बड़ा form */
       margin: 60px auto 0;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px;
     }
 
     input, textarea {
-      padding: 18px;
-      border: 1px solid rgba(0,255,255,0.4);
-      border-radius: 12px;
+      padding: 22px; /* बड़ा input */
+      border: 2px solid rgba(0,255,255,0.4);
+      border-radius: 15px;
       background: rgba(20,15,50,0.6);
       color: white;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
+      transition: all 0.3s;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #00ffff;
+      box-shadow: 0 0 20px rgba(0,255,255,0.4);
+      transform: scale(1.02);
     }
 
     footer {
       text-align: center;
-      padding: 80px 20px 40px;
+      padding: 100px 20px 50px; /* बड़ा footer */
       background: rgba(0,0,0,0.7);
       border-top: 1px solid rgba(0,255,255,0.3);
+      font-size: 1.1rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1200px) {
+      header { margin-right: 320px; }
     }
 
     @media (max-width: 900px) {
-      .glitch { font-size: 3.8rem; }
+      .lang-selector {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+      header { 
+        margin-right: 0;
+        padding: 15px 5%;
+      }
+      .glitch { font-size: 4rem; }
       .tl-item { width: 90%; left: 5% !important; text-align: left !important; }
-      .tl-item::before { left: -37px !important; }
-      .timeline::before { left: 30px; }
+      .tl-item::before { left: -44px !important; }
+      .timeline::before { left: 35px; }
+      .grid { grid-template-columns: 1fr; gap: 30px; }
     }
   </style>
 </head>
@@ -246,29 +349,52 @@
   <div id="vanta-bg"></div>
   <div id="tsparticles"></div>
 
+  <!-- Multi-Language Selector - बड़ा और prominent -->
+  <div class="lang-selector" id="langSelector">
+    <div class="lang-title">🌐 भाषा चुनें / Select Language</div>
+    <div class="lang-buttons">
+      <button class="lang-btn active" data-lang="hi">हिंदी 🇮🇳</button>
+      <button class="lang-btn" data-lang="en">English 🇺🇸</button>
+      <button class="lang-btn" data-lang="pn">ਪੰਜਾਬੀ 🇮🇳</button>
+    </div>
+  </div>
+
   <header id="header">
-    <div class="logo">Zanon-Vantura</div>
-    <nav>
-      <a href="#home">होम</a>
-      <a href="#about">बारे में</a>
-      <a href="#journey">जर्नी</a>
-      <a href="#services">सेवाएँ</a>
-      <a href="#team">टीम</a>
-      <a href="#testimonials">टेस्टिमोनियल्स</a>
-      <a href="#contact">संपर्क</a>
+    <div class="logo" data-en="Zanon-Vantura" data-hi="Zanon-Vantura" data-pn="ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ">Zanon-Vantura</div>
+    <nav id="navMenu">
+      <a href="#home" data-en="Home" data-hi="होम" data-pn="ਘਰ">होम</a>
+      <a href="#about" data-en="About" data-hi="बारे में" data-pn="ਬਾਰੇ">बारे में</a>
+      <a href="#journey" data-en="Journey" data-hi="जर्नी" data-pn="ਯਾਤਰਾ">जर्नी</a>
+      <a href="#services" data-en="Services" data-hi="सेवाएँ" data-pn="ਸੇਵਾਵਾਂ">सेवाएँ</a>
+      <a href="#team" data-en="Team" data-hi="टीम" data-pn="ਟੀਮ">टीम</a>
+      <a href="#testimonials" data-en="Testimonials" data-hi="टेस्टिमोनियल्स" data-pn="ਸ਼ਿਆਦਤਾਂ">टेस्टिमोनियल्स</a>
+      <a href="#contact" data-en="Contact" data-hi="संपर्क" data-pn="ਸੰਪਰਕ">संपर्क</a>
     </nav>
   </header>
 
   <section class="hero" id="home">
-    <h1 class="glitch">Zanon-Vantura Synergy Group</h1>
-    <p>नवाचार की नई लहर • सिनर्जी से अनंत संभावनाएँ • Ludhiana से World को Connect</p>
-    <p style="font-size:1.7rem; margin:40px 0;">हम AI, Digital Transformation, Branding और Growth Strategy से आपके बिजनेस को 10X करते हैं।</p>
-    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">शुरू करें →</button>
+    <h1 class="glitch" data-en="Zanon-Vantura Synergy Group" data-hi="Zanon-Vantura Synergy Group" data-pn="ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਸਿਨਰਜੀ ਗਰੁੱਪ">Zanon-Vantura Synergy Group</h1>
+    <p data-en="New wave of innovation • Infinite possibilities through synergy • Connecting Ludhiana to World" 
+       data-hi="नवाचार की नई लहर • सिनर्जी से अनंत संभावनाएँ • Ludhiana से World को Connect"
+       data-pn="ਨਵੀਂ ਨਵੀਨਤਾ ਦੀ ਲਹਿਰ • ਸਿਨਰਜੀ ਰਾਹੀਂ ਅਨੰਤ ਸੰਭਾਵਨਾਵਾਂ • ਲੁਧਿਆਣਾ ਨੂੰ ਵਿਸ਼ਵ ਨਾਲ ਜੋੜਦੇ ਹਾਂ">
+      नवाचार की नई लहर • सिनर्जी से अनंत संभावनाएँ • Ludhiana से World को Connect
+    </p>
+    <p style="font-size:1.9rem; margin:40px 0;" 
+       data-en="We 10X your business with AI, Digital Transformation, Branding & Growth Strategy."
+       data-hi="हम AI, Digital Transformation, Branding और Growth Strategy से आपके बिजनेस को 10X करते हैं।"
+       data-pn="ਅਸੀਂ AI, ਡਿਜੀਟਲ ਟ੍ਰਾਂਸਫਾਰਮੇਸ਼ਨ, ਬ੍ਰਾਂਡਿੰਗ ਅਤੇ ਗ੍ਰੋਥ ਸਟ੍ਰੈਟਜੀ ਨਾਲ ਤੁਹਾਡੇ ਬਿਜ਼ਨਸ ਨੂੰ 10X ਕਰਦੇ ਹਾਂ।">
+      हम AI, Digital Transformation, Branding और Growth Strategy से आपके बिजनेस को 10X करते हैं।
+    </p>
+    <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" 
+            data-en="Get Started →" data-hi="शुरू करें →" data-pn="ਸ਼ੁਰੂ ਕਰੋ →">शुरू करें →</button>
   </section>
 
   <section id="about">
-    <h2 style="font-size:3.8rem; margin-bottom:50px;">हम कौन हैं?</h2>
-    <p style="font-size:1.4rem; max-width:1000px; margin:0 auto 50px; text-align:center;">
+    <h2 data-en="Who We Are?" data-hi="हम कौन हैं?" data-pn="ਅਸੀਂ ਕੌਣ ਹਾਂ?" style="font-size:4rem; margin-bottom:60px;">हम कौन हैं?</h2>
+    <p style="font-size:1.5rem; max-width:1100px; margin:0 auto 60px; text-align:center;" 
+       data-en="Zanon-Vantura Synergy Group is a futuristic collective started from Ludhiana, Punjab. We combine tech, creativity & business intelligence to take companies to next-gen level. Our mantra: 'No Synergy, No Supremacy.'"
+       data-hi="Zanon-Vantura Synergy Group Punjab के Ludhiana से शुरू हुआ एक futuristic collective है। हम tech, creativity और business intelligence को मिलाकर companies को next-gen level पर ले जाते हैं। हमारा मंत्र है: 'Synergy नहीं, तो supremacy नहीं।'"
+       data-pn="ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਸਿਨਰਜੀ ਗਰੁੱਪ ਪੰਜਾਬ ਦੇ ਲੁਧਿਆਣਾ ਤੋਂ ਸ਼ੁਰੂ ਹੋਇਆ ਇੱਕ ਭਵਿੱਖਬਾਨ ਸੰਗਠਨ ਹੈ। ਅਸੀਂ ਟੈਕ, ਰਚਨਾਤਮਕਤਾ ਅਤੇ ਬਿਜ਼ਨਸ ਬੁੱਧੀ ਨੂੰ ਜੋੜ ਕੇ ਕੰਪਨੀਆਂ ਨੂੰ ਅਗਲੇ ਪੱਧਰ ਤੱਕ ਲੈ ਜਾਂਦੇ ਹਾਂ। ਸਾਡਾ ਮੰਤਰ: 'ਸਿਨਰਜੀ ਨਹੀਂ ਤਾਂ ਸਰਵੋਚਚਤਾ ਨਹੀਂ।'">
       Zanon-Vantura Synergy Group Punjab के Ludhiana से शुरू हुआ एक futuristic collective है। 
       हम tech, creativity और business intelligence को मिलाकर companies को next-gen level पर ले जाते हैं।
       हमारा मंत्र है: "Synergy नहीं, तो supremacy नहीं।"
@@ -276,85 +402,183 @@
   </section>
 
   <section id="journey">
-    <h2>हमारी Journey</h2>
+    <h2 data-en="Our Journey" data-hi="हमारी Journey" data-pn="ਸਾਡੀ ਯਾਤਰਾ">हमारी Journey</h2>
     <div class="timeline">
       <div class="tl-item">
         <h3>2022</h3>
-        <p>कॉन्सेप्ट जन्मा – Ludhiana में छोटी सी टीम से शुरुआत</p>
+        <p data-en="Concept born – Started with small team in Ludhiana" data-hi="कॉन्सेप्ट जन्मा – Ludhiana में छोटी सी टीम से शुरुआत" data-pn="ਅਵਧਾਰਨਾ ਜਨਮ ਲਿਆ – ਲੁਧਿਆਣਾ ਵਿੱਚ ਛੋਟੀ ਟੀਮ ਨਾਲ ਸ਼ੁਰੂਆਤ">कॉन्सेप्ट जन्मा – Ludhiana में छोटी सी टीम से शुरुआत</p>
       </div>
       <div class="tl-item">
         <h3>2023</h3>
-        <p>पहले 50+ क्लाइंट्स – Digital Transformation projects</p>
+        <p data-en="First 50+ clients – Digital Transformation projects" data-hi="पहले 50+ क्लाइंट्स – Digital Transformation projects" data-pn="ਪਹਿਲੇ 50+ ਕਲਾਇੰਟਸ – ਡਿਜੀਟਲ ਟ੍ਰਾਂਸਫਾਰਮੇਸ਼ਨ ਪ੍ਰੋਜੈਕਟਸ">पहले 50+ क्लाइंट्स – Digital Transformation projects</p>
       </div>
       <div class="tl-item">
         <h3>2024</h3>
-        <p>AI & Automation division लॉन्च – National recognition</p>
+        <p data-en="AI & Automation division launched – National recognition" data-hi="AI & Automation division लॉन्च – National recognition" data-pn="AI ਅਤੇ ਆਟੋਮੇਸ਼ਨ ਵਿਭਾਗ ਲਾਂਚ – ਰਾਸ਼ਟਰੀ ਮਾਨਤਾ">AI & Automation division लॉन्च – National recognition</p>
       </div>
       <div class="tl-item">
         <h3>2025-26</h3>
-        <p>Global expansion – Your future partner in innovation</p>
+        <p data-en="Global expansion – Your future partner in innovation" data-hi="Global expansion – Your future partner in innovation" data-pn="ਗਲੋਬਲ ਵਿਸਥਾਰ – ਤੁਹਾਡਾ ਭਵਿੱਖ ਦਾ ਨਵੀਨਤਾ ਵਿੱਚ ਸਾਥੀ">Global expansion – Your future partner in innovation</p>
       </div>
     </div>
   </section>
 
   <section id="services">
-    <h2>हमारी Power Services</h2>
+    <h2 data-en="Our Power Services" data-hi="हमारी Power Services" data-pn="ਸਾਡੀਆਂ ਪਾਵਰ ਸੇਵਾਵਾਂ">हमारी Power Services</h2>
     <div class="grid">
-      <div class="card"><h3>AI & Automation</h3><p>Custom AI solutions, chatbots, predictive analytics</p></div>
-      <div class="card"><h3>Digital Branding</h3><p>Neon-age identity, social dominance, viral campaigns</p></div>
-      <div class="card"><h3>Web3 & Metaverse</h3><p>NFTs, VR experiences, blockchain integration</p></div>
-      <div class="card"><h3>Growth Hacking</h3><p>Data-driven strategies, 10X scaling blueprints</p></div>
-      <div class="card"><h3>Cyber Security</h3><p>Zero-trust architecture for modern threats</p></div>
-      <div class="card"><h3>Consulting 360°</h3><p>End-to-end business metamorphosis</p></div>
+      <div class="card">
+        <h3 data-en="AI & Automation" data-hi="AI & Automation" data-pn="AI ਅਤੇ ਆਟੋਮੇਸ਼ਨ">AI & Automation</h3>
+        <p data-en="Custom AI solutions, chatbots, predictive analytics" data-hi="Custom AI solutions, chatbots, predictive analytics" data-pn="ਕਸਟਮ AI ਹੱਲ, ਚੈਟਬਾਟਸ, ਪੂਰਵਾਨੁਮਾਨ ਵਿਸ਼ਲੇਸ਼ਣ">Custom AI solutions, chatbots, predictive analytics</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Digital Branding" data-hi="Digital Branding" data-pn="ਡਿਜੀਟਲ ਬ੍ਰਾਂਡਿੰਗ">Digital Branding</h3>
+        <p data-en="Neon-age identity, social dominance, viral campaigns" data-hi="Neon-age identity, social dominance, viral campaigns" data-pn="ਨਿਊਨ-ਯੁਗ ਪਛਾਣ, ਸੋਸ਼ਲ ਪ੍ਰਭਾਵ, ਵਾਇਰਲ ਮੁਹਿੰਮਾਂ">Neon-age identity, social dominance, viral campaigns</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Web3 & Metaverse" data-hi="Web3 & Metaverse" data-pn="Web3 ਅਤੇ ਮੈਟਾਵਰਸ">Web3 & Metaverse</h3>
+        <p data-en="NFTs, VR experiences, blockchain integration" data-hi="NFTs, VR experiences, blockchain integration" data-pn="NFTs, VR ਅਨੁਭਵ, ਬਲਾਕਚੇਨ ਏਕੀਕਰਣ">NFTs, VR experiences, blockchain integration</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Growth Hacking" data-hi="Growth Hacking" data-pn="ਗ੍ਰੋਥ ਹੈਕਿੰਗ">Growth Hacking</h3>
+        <p data-en="Data-driven strategies, 10X scaling blueprints" data-hi="Data-driven strategies, 10X scaling blueprints" data-pn="ਡਾਟਾ-ਚਾਲੀਤ ਰਣਨੀਤੀਆਂ, 10X ਸਕੇਲਿੰਗ ਬਲੂਪ੍ਰਿੰਟਸ">Data-driven strategies, 10X scaling blueprints</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Cyber Security" data-hi="Cyber Security" data-pn="ਸਾਈਬਰ ਸੁਰੱਖਿਆ">Cyber Security</h3>
+        <p data-en="Zero-trust architecture for modern threats" data-hi="Zero-trust architecture for modern threats" data-pn="ਆਧੁਨਿਕ ਖ਼ਤਰਿਆਂ ਲਈ ਜ਼ੀਰੋ-ਟ੍ਰੱਸਟ ਆਰਕੀਟੈਕਚਰ">Zero-trust architecture for modern threats</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Consulting 360°" data-hi="Consulting 360°" data-pn="ਸਲਾਹਕਾਰੀ 360°">Consulting 360°</h3>
+        <p data-en="End-to-end business metamorphosis" data-hi="End-to-end business metamorphosis" data-pn="ਅੰਤ ਤੋਂ ਅੰਤ ਬਿਜ਼ਨਸ ਬਦਲਾਅ">End-to-end business metamorphosis</p>
+      </div>
     </div>
   </section>
 
   <section id="team">
-    <h2>हमारी Elite Team</h2>
+    <h2 data-en="Our Elite Team" data-hi="हमारी Elite Team" data-pn="ਸਾਡੀ ਐਲੀਟ ਟੀਮ">हमारी Elite Team</h2>
     <div class="grid">
-      <div class="card"><h3>Honey Sandhu</h3><p>Founder & Visionary</p><p>Tech + Business Synergist</p></div>
-      <div class="card"><h3>Aarav Tech Lead</h3><p>AI & Full-Stack Guru</p></div>
-      <div class="card"><h3>Neon Designer</h3><p>Creative Director</p></div>
-      <div class="card"><h3>Kira Strategist</h3><p>Growth & Marketing Head</p></div>
+      <div class="card">
+        <h3 data-en="Honey Sandhu" data-hi="Honey Sandhu" data-pn="ਹਨੀ ਸੰਧੂ">Honey Sandhu</h3>
+        <p data-en="Founder & Visionary" data-hi="Founder & Visionary" data-pn="ਸੰਸਥਾਪਕ ਅਤੇ ਦ੍ਰਿਸ਼ਟੀਕਾਰ">Founder & Visionary</p>
+        <p data-en="Tech + Business Synergist" data-hi="Tech + Business Synergist" data-pn="ਟੈਕ + ਬਿਜ਼ਨਸ ਸਿਨਰਜਿਸਟ">Tech + Business Synergist</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Aarav Tech Lead" data-hi="Aarav Tech Lead" data-pn="ਆਰਵ ਟੈਕ ਲੀਡ">Aarav Tech Lead</h3>
+        <p data-en="AI & Full-Stack Guru" data-hi="AI & Full-Stack Guru" data-pn="AI ਅਤੇ ਫੁੱਲ-ਸਟੈਕ ਗੁਰੂ">AI & Full-Stack Guru</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Neon Designer" data-hi="Neon Designer" data-pn="ਨਿਊਨ ਡਿਜ਼ਾਈਨਰ">Neon Designer</h3>
+        <p data-en="Creative Director" data-hi="Creative Director" data-pn="ਰਚਨਾਤਮਕ ਨਿਰਦੇਸ਼ਕ">Creative Director</p>
+      </div>
+      <div class="card">
+        <h3 data-en="Kira Strategist" data-hi="Kira Strategist" data-pn="ਕਿਰਾ ਰਣਨੀਤੀਕਾਰ">Kira Strategist</h3>
+        <p data-en="Growth & Marketing Head" data-hi="Growth & Marketing Head" data-pn="ਗ੍ਰੋਥ ਅਤੇ ਮਾਰਕੀਟਿੰਗ ਹੈਡ">Growth & Marketing Head</p>
+      </div>
     </div>
   </section>
 
   <section id="testimonials">
-    <h2>क्या कहते हैं हमारे Partners</h2>
+    <h2 data-en="What Our Partners Say" data-hi="क्या कहते हैं हमारे Partners" data-pn="ਸਾਡੇ ਸਾਥੀ ਕੀ ਕਹਿੰਦੇ ਹਨ">क्या कहते हैं हमारे Partners</h2>
     <div class="grid">
       <div class="card testimonial">
-        <p>"Zanon-Vantura ने हमारे startup को 6 महीने में 4X growth दिया। Mind-blowing AI tools!"</p>
-        <p><strong>– Tech Startup Founder, Chandigarh</strong></p>
+        <p data-en='"Zanon-Vantura gave our startup 4X growth in 6 months. Mind-blowing AI tools!"' 
+           data-hi='"Zanon-Vantura ने हमारे startup को 6 महीने में 4X growth दिया। Mind-blowing AI tools!"'
+           data-pn='"ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਨੇ ਸਾਡੇ ਸਟਾਰਟਅਪ ਨੂੰ 6 ਮਹੀਨਿਆਂ ਵਿੱਚ 4X ਵਿਕਾਸ ਦਿੱਤਾ। ਮਾਇਂਡ-ਬਲੋਇੰਗ AI ਟੂਲ!"'>
+          "Zanon-Vantura ने हमारे startup को 6 महीने में 4X growth दिया। Mind-blowing AI tools!"
+        </p>
+        <p><strong data-en="– Tech Startup Founder, Chandigarh" data-hi="– Tech Startup Founder, Chandigarh" data-pn="– ਟੈਕ ਸਟਾਰਟਅਪ ਸੰਸਥਾਪਕ, ਚੰਡੀਗੜ੍ਹ">– Tech Startup Founder, Chandigarh</strong></p>
       </div>
       <div class="card testimonial">
-        <p>"Branding से लेकर automation तक – सब कुछ next level। Highly recommended!"</p>
-        <p><strong>– E-commerce Brand Owner, Ludhiana</strong></p>
+        <p data-en='"From branding to automation – everything next level. Highly recommended!"' 
+           data-hi='"Branding से लेकर automation तक – सब कुछ next level। Highly recommended!"'
+           data-pn='"ਬ੍ਰਾਂਡਿੰਗ ਤੋਂ ਆਟੋਮੇਸ਼ਨ ਤੱਕ – ਸਭ ਕੁਝ ਅਗਲੇ ਪੱਧਰ ਦਾ। ਬਹੁਤ ਸਿਫਾਰਸ਼ ਕੀਤੀ!"'>
+          "Branding से लेकर automation तक – सब कुछ next level। Highly recommended!"
+        </p>
+        <p><strong data-en="– E-commerce Brand Owner, Ludhiana" data-hi="– E-commerce Brand Owner, Ludhiana" data-pn="– ਈ-ਕਾਮਰਸ ਬ੍ਰਾਂਡ ਮਾਲਕ, ਲੁਧਿਆਣਾ">– E-commerce Brand Owner, Ludhiana</strong></p>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <h2>Connect With Future</h2>
-    <p style="text-align:center; font-size:2.2rem; margin:30px 0; color:#ffd700;">
+    <h2 data-en="Connect With Future" data-hi="Connect With Future" data-pn="ਭਵਿੱਖ ਨਾਲ ਜੁੜੋ">Connect With Future</h2>
+    <p style="text-align:center; font-size:2.5rem; margin:30px 0; color:#ffd700;">
       +91 84273 38897
     </p>
-    <a href="tel:+918427338897" style="text-decoration:none; display:block; text-align:center; margin:30px 0;">
-      <button class="btn">Call Now →</button>
+    <a href="tel:+918427338897" style="text-decoration:none; display:block; text-align:center; margin:40px 0;">
+      <button class="btn" data-en="Call Now →" data-hi="Call Now →" data-pn="ਹੁਣ ਕਾਲ ਕਰੋ →">Call Now →</button>
     </a>
 
     <form id="contactForm">
-      <input type="text" placeholder="तुम्हारा नाम" required>
-      <input type="email" placeholder="ईमेल / व्हाट्सएप नंबर" required>
-      <textarea rows="6" placeholder="तुम्हारा मैसेज या प्रोजेक्ट आइडिया..." required></textarea>
-      <button type="submit" class="btn">Send to Zanon-Vantura →</button>
+      <input type="text" placeholder="तुम्हारा नाम" data-en-placeholder="Your Name" required>
+      <input type="email" placeholder="ईमेल / व्हाट्सएप नंबर" data-en-placeholder="Email / WhatsApp Number" required>
+      <textarea rows="7" placeholder="तुम्हारा मैसेज या प्रोजेक्ट आइडिया..." 
+                data-en-placeholder="Your message or project idea..."></textarea>
+      <button type="submit" class="btn" data-en="Send to Zanon-Vantura →" data-hi="Send to Zanon-Vantura →" data-pn="ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਨੂੰ ਭੇਜੋ →">Send to Zanon-Vantura →</button>
     </form>
   </section>
 
   <footer>
-    <p>© 2026 Zanon-Vantura Synergy Group | Ludhiana, Punjab, India | Built with Neon & Synergy 🔥</p>
+    <p data-en="© 2026 Zanon-Vantura Synergy Group | Ludhiana, Punjab, India | Built with Neon & Synergy 🔥" 
+       data-hi="© 2026 Zanon-Vantura Synergy Group | Ludhiana, Punjab, India | Built with Neon & Synergy 🔥"
+       data-pn="© 2026 ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਸਿਨਰਜੀ ਗਰੁੱਪ | ਲੁਧਿਆਣਾ, ਪੰਜਾਬ, ਭਾਰਤ | ਨਿਊਨ ਅਤੇ ਸਿਨਰਜੀ ਨਾਲ ਬਣਾਇਆ 🔥">
+      © 2026 Zanon-Vantura Synergy Group | Ludhiana, Punjab, India | Built with Neon & Synergy 🔥
+    </p>
   </footer>
 
   <script>
+    // Language Management
+    const languages = {
+      hi: {
+        name: 'हिंदी',
+        dir: 'ltr'
+      },
+      en: {
+        name: 'English',
+        dir: 'ltr'
+      },
+      pn: {
+        name: 'ਪੰਜਾਬੀ',
+        dir: 'ltr'
+      }
+    };
+
+    let currentLang = 'hi';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      
+      // Update all text content
+      document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+        const tagName = el.tagName.toLowerCase();
+        if (tagName === 'h1' || tagName === 'h2' || tagName === 'h3') {
+          el.textContent = el.dataset[lang];
+        } else {
+          el.textContent = el.dataset[lang] || el.textContent;
+        }
+      });
+
+      // Update placeholders
+      document.querySelectorAll('[data-en-placeholder]').forEach(input => {
+        if (input.hasAttribute('data-' + lang + '-placeholder')) {
+          input.placeholder = input.dataset[lang + 'Placeholder'];
+        }
+      });
+
+      // Update HTML lang attribute
+      document.documentElement.lang = lang;
+    }
+
+    // Language selector events
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
     // Vanta Background
     VANTA.NET({
       el: "#vanta-bg",
@@ -367,7 +591,7 @@
       scaleMobile: 1.00,
       color: 0x00ffff,
       backgroundColor: 0x050014,
-      points: 12,
+      points: 14,
       maxDistance: 25,
       spacing: 16
     });
@@ -375,13 +599,13 @@
     // tsParticles
     tsParticles.load("tsparticles", {
       particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
+        number: { value: 100, density: { enable: true, value_area: 800 } },
         color: { value: ["#00ffff", "#ff00cc", "#ffd700"] },
         shape: { type: "circle" },
         opacity: { value: 0.5, random: true },
-        size: { value: 3, random: true },
-        line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1 },
-        move: { enable: true, speed: 2, direction: "none", random: true, straight: false, out_mode: "out" }
+        size: { value: 4, random: true },
+        line_linked: { enable: true, distance: 150, color: "#00ffff", opacity: 0.4, width: 1.5 },
+        move: { enable: true, speed: 2.5, direction: "none", random: true, straight: false, out_mode: "out" }
       },
       interactivity: {
         detect_on: "canvas",
@@ -407,12 +631,20 @@
       header.classList.toggle('scrolled', scrollY > 150);
     });
 
-    // Form dummy submit
+    // Form submit with language support
     document.getElementById('contactForm').addEventListener('submit', e => {
       e.preventDefault();
-      alert('Message sent to Zanon-Vantura team! हम जल्दी connect करेंगे। 🚀');
+      const messages = {
+        hi: 'Message sent to Zanon-Vantura team! हम जल्दी connect करेंगे। 🚀',
+        en: 'Message sent to Zanon-Vantura team! We will connect soon. 🚀',
+        pn: 'ਸੁਨੇਹਾ ਜ਼ੈਨਨ-ਵੈਂਚੂਰਾ ਟੀਮ ਨੂੰ ਭੇਜਿਆ ਗਿਆ! ਅਸੀਂ ਜਲਦੀ ਜੁੜਾਂਗੇ। 🚀'
+      };
+      alert(messages[currentLang] || messages.hi);
     });
+
+    // Initialize language
+    setLanguage('hi');
   </script>
 
 </body>
-          </html>
+</html>
