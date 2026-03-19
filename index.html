@@ -3,54 +3,107 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Zanon-Vantura Synergy Group | 10X Machine</title>
+  <title>Zanon-Vantura Synergy Group – Future Synergy Unleashed</title>
   
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
   <style>
     * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: 'Poppins', sans-serif; background: #000; color: #e0e0ff; overflow-x: hidden; }
-
-    /* गोल्डन मनी एनीमेशन */
-    #tsparticles { position: fixed; inset: 0; z-index: -2; }
-
-    header {
-      position: fixed; top: 0; left: 0; right: 0; padding: 15px 6%;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(0, 5, 20, 0.85); backdrop-filter: blur(15px);
-      border-bottom: 2px solid #DAA520; z-index: 999;
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #050014;
+      color: #e0e0ff;
+      overflow-x: hidden;
+      line-height: 1.7;
     }
 
-    .logo { font-family: 'Orbitron'; font-size: 2rem; color: #DAA520; text-shadow: 0 0 15px #DAA520; }
-    
-    nav { display: flex; align-items: center; gap: 20px; }
-    nav a { color: #fff; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    #tsparticles {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
 
-    /* असली गूगल ट्रांसलेट को मेनू में छिपाना */
+    /* गूगल ट्रांसलेट को छिपाने के लिए */
     #google_translate_element { display: none !important; }
     .goog-te-banner-frame { display: none !important; }
     body { top: 0 !important; }
 
-    /* नया सुंदर लैंग्वेज बटन */
-    .custom-lang-selector {
-      background: linear-gradient(45deg, #DAA520, #ffd700);
-      color: black; border: none; padding: 8px 15px; border-radius: 5px;
-      font-weight: bold; cursor: pointer; font-family: 'Orbitron';
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 20px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 0, 20, 0.7);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(0,255,255,0.18);
+      z-index: 999;
     }
 
-    section { padding: 150px 6% 50px; text-align: center; }
-    .glitch-big { font-size: 5rem; font-family: 'Orbitron'; font-weight: 900; color: #DAA520; text-shadow: 0 0 30px #DAA52055; margin-bottom: 20px; }
-
-    .invest-card {
-      background: rgba(0, 10, 30, 0.9); border: 3px solid #DAA520; border-radius: 25px;
-      padding: 40px; margin: 30px auto; max-width: 650px; box-shadow: 0 0 50px rgba(218, 165, 32, 0.3);
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #00ffff;
+      text-shadow: 0 0 25px #00ffff99;
     }
 
-    input, .file-input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid #00ffff; background: #000; color: #fff; }
-    .btn-submit { width: 100%; padding: 20px; background: #DAA520; color: #000; font-weight: 900; border: none; border-radius: 50px; cursor: pointer; font-size: 1.2rem; }
+    nav { display: flex; align-items: center; }
+    nav a, .lang-select {
+      color: #c0c0ff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 500;
+      transition: 0.3s;
+      background: none;
+      border: none;
+      font-family: 'Poppins';
+      cursor: pointer;
+    }
+    .lang-select { 
+        color: #ffd700; 
+        border: 1px solid #ffd700; 
+        padding: 5px 10px; 
+        border-radius: 5px; 
+    }
+
+    section { padding: 140px 6% 100px; position: relative; }
+    h1, h2 { font-family: 'Orbitron', sans-serif; text-align: center; }
+
+    .glitch {
+      font-size: 5.5rem;
+      background: linear-gradient(90deg, #00ffff, #ff00cc, #ffd700, #00ffff);
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glitchFlow 8s linear infinite;
+      margin-bottom: 25px;
+    }
+
+    /* नया इन्वेस्टमेंट कार्ड जो आपने माँगा था */
+    .invest-portal {
+      background: rgba(15, 10, 40, 0.85);
+      border: 2px solid #DAA520;
+      border-radius: 25px;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 700px;
+      box-shadow: 0 0 50px rgba(218, 165, 32, 0.3);
+      text-align: center;
+    }
+    .invest-portal input { width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: 1px solid #00ffff; background: rgba(0,0,0,0.5); color: white; }
+    .btn-portal { padding: 15px 40px; background: #DAA520; color: #000; font-weight: bold; border-radius: 50px; border:none; cursor:pointer; font-size: 1.2rem; margin-top: 15px; }
+
+    /* बाकी ओरिजिनल ग्रिड और कार्ड */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 40px; max-width: 1400px; margin: 60px auto 0; }
+    .card { background: rgba(15, 10, 40, 0.5); border: 1px solid rgba(0,255,255,0.25); border-radius: 22px; padding: 45px 35px; text-align: center; transition: 0.5s; backdrop-filter: blur(10px); }
+    .card:hover { transform: translateY(-15px); border-color: #00ffff; }
+
+    footer { text-align: center; padding: 60px; border-top: 1px solid #DAA520; }
   </style>
 </head>
 <body>
@@ -59,51 +112,69 @@
   <div id="google_translate_element"></div>
 
   <header>
-    <div class="logo">ZANON-VANTURA</div>
+    <div class="logo">Zanon-Vantura</div>
     <nav>
-      <a href="#home">HOME</a>
-      <a href="#portal">PORTAL</a>
-      <select class="custom-lang-selector" onchange="translatePage(this.value)">
-        <option value="">🌐 LANGUAGE</option>
-        <option value="hi">हिन्दी (Hindi)</option>
-        <option value="en">English</option>
-        <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-        <option value="es">Español</option>
+      <a href="#home">होम</a>
+      <a href="#portal">पोर्टल</a>
+      <a href="#about">मिशन</a>
+      <select class="lang-select" onchange="translatePage(this.value)">
+          <option value="">🌐 LANGUAGE</option>
+          <option value="hi">हिन्दी</option>
+          <option value="en">English</option>
+          <option value="pa">ਪੰਜਾਬੀ</option>
       </select>
     </nav>
   </header>
 
-  <section id="home">
-    <h1 class="glitch-big">10X GROWTH MACHINE</h1>
+  <section class="hero" id="home">
+    <h1 class="glitch">10X GROWTH MACHINE</h1>
     <div id="liveCount" style="font-size: 4rem; color: #ffd700; font-family: 'Orbitron';">0</div>
-    <p style="color: #00ffff; letter-spacing: 2px;">GLOBAL VISIONARIES JOINED</p>
-
-    <div class="invest-card" id="portal">
-      <h2 style="color: #DAA520; font-family: 'Orbitron';">INVESTOR PORTAL</h2>
-      <p style="color: #ff00cc; font-weight: bold;">FEE: ₹50 | 10X RETURN (5 YEARS)</p>
-      
-      <form id="synergyForm">
-        <input type="text" id="userName" placeholder="आपका पूरा नाम (Full Name)" required>
-        <input type="text" id="pName" placeholder="पिता/पति का नाम (Parent Name)" required>
-        <p style="text-align: left; color: #DAA520; margin-top: 10px;">दस्तावेज अपलोड (Choose Files):</p>
-        <input type="file" class="file-input" required>
-        <input type="file" class="file-input" required>
-        <button type="submit" class="btn-submit">SUBMIT & REGISTER →</button>
-      </form>
+    <p style="font-size: 1.5rem; color: #00ffff;">INVESTORS JOINED OUT OF 100,000</p>
+    
+    <div class="invest-portal" id="portal">
+        <h2 style="color: #DAA520;">रजिस्ट्रेशन एवं दस्तावेज अपलोड</h2>
+        <form id="synergyForm">
+            <input type="text" id="uName" placeholder="आपका नाम (Full Name)" required>
+            <input type="text" id="pName" placeholder="पिता/पति का नाम" required>
+            <p style="text-align: left; color: #DAA520; margin-top: 10px;">दस्तावेज चुनें:</p>
+            <input type="file" required>
+            <input type="file" required>
+            <button type="submit" class="btn-portal">SUBMIT & REGISTER</button>
+        </form>
     </div>
   </section>
 
-  <footer style="padding: 40px; text-align: center; border-top: 1px solid #DAA520;">
-    <p>© 2026 Zanon-Vantura Synergy Group | सिमरनजीत सिंह संधू | लुधियाना</p>
+  <section id="about">
+    <h2>हम कौन हैं?</h2>
+    <p style="text-align:center; font-size:1.3rem;">Zanon-Vantura Synergy Group पंजाब के लुधियाना से शुरू हुआ एक भविष्यवादी समूह है।</p>
+    <div class="grid">
+        <div class="card"><h3>Elite Team</h3><p>Honey Sandhu (Founder) & Team</p></div>
+        <div class="card"><h3>Our Journey</h3><p>From 2022 to Global Vision 2026</p></div>
+        <div class="card"><h3>Services</h3><p>AI, Blockchain & 10X Scale</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Zanon-Vantura Synergy Group | डायरेक्टर: सिमरनजीत सिंह संधू</p>
   </footer>
 
-  <script type="text/javascript">
-    // गूगल ट्रांसलेट को शुरू करने का तरीका
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({pageLanguage: 'hi', autoDisplay: false}, 'google_translate_element');
-    }
+  <script>
+    // पैसा और वर्किंग गियर एनीमेशन
+    tsParticles.load("tsparticles", {
+      particles: {
+        number: { value: 50 },
+        color: { value: ["#ffd700", "#00ffff"] },
+        shape: { type: "char", options: { char: { value: ["₹", "⚙️", "💰"] } } },
+        opacity: { value: 0.6 },
+        size: { value: 15 },
+        move: { enable: true, speed: 2, direction: "bottom" }
+      }
+    });
 
-    // बिना पॉप-अप के भाषा बदलने वाला जादुई फंक्शन
+    // लैंग्वेज फंक्शन
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'hi'}, 'google_translate_element');
+    }
     function translatePage(lang) {
       var selectField = document.querySelector(".goog-te-combo");
       if (selectField) {
@@ -112,24 +183,12 @@
       }
     }
 
-    // पैसे वाली एनीमेशन (Money Particles)
-    tsParticles.load("tsparticles", {
-      particles: {
-        number: { value: 60 },
-        color: { value: "#ffd700" },
-        shape: { type: "char", options: { char: { value: ["₹", "$", "💰"] } } },
-        opacity: { value: 0.6 },
-        size: { value: 12 },
-        move: { enable: true, speed: 2, direction: "bottom" }
-      }
-    });
-
-    // काउंटर सिस्टम
-    let currentVal = 0;
+    // काउंटर
+    let current = 0;
     document.getElementById('synergyForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      currentVal++;
-      document.getElementById('liveCount').innerText = currentVal;
+      current++;
+      document.getElementById('liveCount').innerText = current;
       alert("Success! Documents Uploaded.");
     });
   </script>
